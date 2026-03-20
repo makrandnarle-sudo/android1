@@ -1,0 +1,84 @@
+1)Activity main
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reminder" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button 1"
+        android:layout_below="@id/name"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button 2"
+        android:layout_below="@id/button1"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>
+
+2)Mainactivity
+package com.example.layouts;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText name;
+    Button button1, button2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        // Linking XML IDs
+        name = findViewById(R.id.name);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+
+        // Edge to Edge fix
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // Button Click Events (for practical)
+        button1.setOnClickListener(v -> {
+            String text = name.getText().toString();
+            Toast.makeText(this, "Entered: " + text, Toast.LENGTH_SHORT).show();
+        });
+
+        button2.setOnClickListener(v -> {
+            name.setText("");
+            Toast.makeText(this, "Cleared", Toast.LENGTH_SHORT).show();
+        });
+    }
+}

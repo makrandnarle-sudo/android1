@@ -1,0 +1,87 @@
+1)FrameLayout  (project name not required)
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/img"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="100sp"
+        android:gravity="center"
+        android:text="Ajmal Perfumes"
+        android:layout_marginTop="220dp"
+        android:textColor="@color/black"/>
+</FrameLayout>
+
+step --> search image on chrome --> copy it and paste in res-->drawable...
+
+run it
+
+
+
+1)GridLayout  (project name not required)
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="3"
+    android:columnCount="3"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="1"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="2"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="3"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="4"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="5"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="6"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="7"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="8"/>
+    <Button
+        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:text="9"/>
+</GridLayout>
+
+
+

@@ -1,0 +1,105 @@
+Project Name --> list_view
+
+1)activity main
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/clickme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click here to view the List View"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
+step --->res>values>string.xml
+
+2)string.xml
+
+<resources>
+    <string name="app_name">List_view</string>
+
+    <string-array name="insert_data">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+    </string-array>
+
+</resources>
+step --> java -->new -->activity -->empty view activity -->List_view -->>finish (List_view,activity_list_view will be created)
+
+
+3)activity_list_view.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:entries="@array/insert_data">
+</ListView>
+
+
+4)List_java
+
+package com.example.list_view;
+
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class List_view extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_list_view);
+    }
+}
+
+
+5)Mainactivity.java
+
+package com.example.list_view;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button clickme;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        clickme = findViewById(R.id.clickme);
+
+        clickme.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, List_view.class);
+            startActivity(intent);
+        });
+    }
+}
+
+

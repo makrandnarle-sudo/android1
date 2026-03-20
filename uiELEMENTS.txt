@@ -1,0 +1,138 @@
+project name-Elements
+
+1)activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/img"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/myname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Welcome to UI elements"
+        android:textColor="@color/black"
+        android:textSize="50dp" />
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myname"
+        android:layout_margin="20dp"
+        android:text="Login"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textAlignment="center"/>
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_margin="20dp"
+        android:text="Register"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:textAlignment="center"/>
+</RelativeLayout>
+
+
+copy image from chrome add to res>drawable
+java>new>Activity>Empty views activity(LoginActivity)
+java>new>Activity>Empty views activity(RegisterActivity)
+.
+
+2)MainActivity.java
+
+package com.example.elements;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+    Button loginbtn, registerbtn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        loginbtn = findViewById(R.id.login_btn);
+        registerbtn = findViewById(R.id.register_btn);
+
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        registerbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent1);
+            }
+        });
+    }
+}
+
+
+
+3)activity_login.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"/>
+</RelativeLayout>
+
+
+4)activity_register.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"/>
+</RelativeLayout>
+
+
+
+
